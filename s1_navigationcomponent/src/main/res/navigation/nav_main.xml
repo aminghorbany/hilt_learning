@@ -22,11 +22,14 @@
         android:id="@+id/detailFragment"
         android:name="com.example.s1_navigationcomponent.page1.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" >
+        tools:layout="@layout/fragment_detail">
 
         <argument
             android:name="bundleName"
             app:argType="string" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="nouri.academy/product/{bundleName}" />
 
     </fragment>
 </navigation>

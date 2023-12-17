@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace 'com.example.testmodule'
-    compileSdk 34
+    namespace 'com.example.s1_coroutine'
+    compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.testmodule"
+        applicationId "com.example.s1_coroutine"
         minSdk 21
-        targetSdk 34
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
