@@ -1,4 +1,4 @@
-package com.example.s1_navigationcomponent
+package com.example.s1_navigationcomponent.page1
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -23,7 +23,11 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             sendBtn.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_detailFragment)
+                val direction =
+                    HomeFragmentDirections.actionHomeFragmentToDetailFragment(
+                        textEdt.text.toString()
+                    )
+                findNavController().navigate(direction)
             }
         }
     }

@@ -6,6 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.s1_navigationcomponent.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -19,8 +20,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.apply {
             navController = findNavController(R.id.navHost)
-            appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment , R.id.detailFragment))
+            appBarConfiguration = AppBarConfiguration(setOf(R.id.mainFragment , R.id.addFragment ,
+                    R.id.favoriteFragment , R.id.profileFragment , R.id.searchFragment))
             setupActionBarWithNavController(navController , appBarConfiguration)
+            bottomNav.setupWithNavController(navController)
         }
 
     }
