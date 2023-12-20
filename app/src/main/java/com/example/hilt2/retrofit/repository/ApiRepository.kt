@@ -9,5 +9,5 @@ import javax.inject.Inject
 @ActivityScoped // no problem if don't use
 class ApiRepository @Inject constructor(private var api: ApiServices) {
 
-    fun getAllMovies() = api.getMovies()
+    fun getAllMovies() = api.getMoviesList(2)
 }

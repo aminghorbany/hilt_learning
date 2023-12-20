@@ -1,7 +1,9 @@
 package com.example.hilt2.retrofit
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -10,6 +12,7 @@ import com.example.hilt2.goneWidget
 import com.example.hilt2.retrofit.model.ResponseMoviesList
 import com.example.hilt2.retrofit.repository.ApiRepository
 import com.example.hilt2.showWidget
+import com.example.hilt2.simple.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import retrofit2.Call
 import retrofit2.Callback
@@ -20,10 +23,10 @@ import javax.inject.Inject
 class MovieActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMovieBinding
 
-    @Inject
-    lateinit var apiRepo: ApiRepository
-    @Inject
-    lateinit var movieAdapter: MovieAdapter
+    @Inject lateinit var apiRepo: ApiRepository
+    @Inject lateinit var apiRepo1: ApiRepository
+    @Inject lateinit var movieAdapter: MovieAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMovieBinding.inflate(layoutInflater)
@@ -42,7 +45,6 @@ class MovieActivity : AppCompatActivity() {
                                 itBody.data?.let {itData ->
                                     if (itData.isNotEmpty()){
                                         movieAdapter.differ.submitList(itData)
-                                        Log.v("aska11" , itData.toString())
                                         moviesRV.apply {
                                             layoutManager = LinearLayoutManager(this@MovieActivity)
                                             adapter = movieAdapter
@@ -59,6 +61,13 @@ class MovieActivity : AppCompatActivity() {
                 }
 
             })
+
+            Log.v("rderda" , apiRepo.hashCode().toString())
+            Log.v("rderda" , apiRepo1.hashCode().toString())
+            btNIntent.setOnClickListener {
+                val intent = Intent(this@MovieActivity , MainActivity::class.java)
+                startActivity(intent)
+            }
         }
 
     }

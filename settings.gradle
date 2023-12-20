@@ -16,3 +16,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "hilt2"
 include ':app'
+include ':app:s1-room'
+include ':testmodule'
+include ':s1_navigationcomponent'
+include ':s1_coroutine'

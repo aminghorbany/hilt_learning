@@ -1,10 +1,12 @@
 package com.example.hilt2.simple
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.hilt2.databinding.ActivityMainBinding
 import com.example.hilt2.di.Family
 import com.example.hilt2.di.FirstName
+import com.example.hilt2.retrofit.MovieActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import javax.inject.Named
@@ -24,6 +26,10 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             txtUserName.text = lastName
             txtResName.text = familyName
+        }
+        binding.btnPreviousPage.setOnClickListener {
+            val intent = Intent(this , MovieActivity::class.java)
+            startActivity(intent)
         }
     }
 }

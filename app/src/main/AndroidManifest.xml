@@ -27,7 +27,7 @@
         </activity>
         <activity
             android:name=".room.NoteActivity"
-            android:exported="true">
+            android:exported="false">
 
         </activity>
         <activity
