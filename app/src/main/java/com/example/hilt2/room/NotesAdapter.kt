@@ -39,6 +39,8 @@ class NotesAdapter @Inject constructor() : RecyclerView.Adapter<NotesAdapter.Vie
 
     }
 
+    override fun getItemViewType(position: Int): Int = position
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesAdapter.ViewHolder {
         binding = ItemNotesBinding.inflate(LayoutInflater.from(parent.context) , parent , false)
         return ViewHolder(binding.root)
