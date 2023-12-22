@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             saveBtn.setOnClickListener {
                 lifecycleScope.launch {
-                    saveData(binding.nameEdt.text.toString() , 30)
+                    storeData(binding.nameEdt.text.toString() , 30)
                     showDataTxt.text = binding.nameEdt.text.toString()
                 }
             }
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    private suspend fun saveData(name : String , age : Int){
+    private suspend fun storeData(name : String, age : Int){
         dataStore.edit {
             it[userNameKey] = name
             it[userAgeKey] = 25
