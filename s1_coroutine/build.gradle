@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'com.example.s1_coroutine'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.s1_coroutine"
         minSdk 21
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -30,6 +30,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures{
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -42,4 +46,14 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //coroutines
+//    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
+//    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0'
+
+//    implementation "androidx.lifecycle.lifecycle-viewmodel-ktx:2.4.1"
+//    implementation "androidx.lifecycle.lifecycle-runtime-ktx:2.4.1" // lifecycle coroutine - activity
+//    implementation "androidx.lifecycle.lifecycle-extensions:2.2.0"
+
+    implementation("androidx.activity:activity-ktx:1.4.0") //with kotlin delegate - without factory initialize
 }
