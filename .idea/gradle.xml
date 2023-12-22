@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/s1_coroutine" />
             <option value="$PROJECT_DIR$/s1_navigationcomponent" />
             <option value="$PROJECT_DIR$/testmodule" />
+            <option value="$PROJECT_DIR$/topmovies" />
           </set>
         </option>
       </GradleProjectSettings>
