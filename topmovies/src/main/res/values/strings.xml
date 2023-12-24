@@ -3,6 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
+    <string name="welcomeTo">Welcome To</string>
     <string name="search">Search</string>
     <string name="favorite">Favorite</string>
     <string name="name">Name</string>
