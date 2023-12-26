@@ -13,9 +13,18 @@
         <item name="android:windowBackground">@color/chineseBlack</item>
     </style>
 
+    <!--TextView-->
     <style name="TextViewLightStyle" parent="Widget.AppCompat.TextView" >
         <item name="android:textColor" >@color/white</item>
         <item name="fontFamily">sans-serif-light</item>
+    </style>
+
+    <!--TextInputLayout-->
+    <style name="CustomFilledBox" parent="Widget.MaterialComponents.TextInputLayout.FilledBox" >
+        <item name="hintTextColor">@color/white</item>
+        <item name="boxStrokeColor">@color/crayola</item>
+        <item name="startIconTint">@color/crayola</item>
+        <item name="boxBackgroundColor">@color/gunmetal</item>
     </style>
 
     <style name="Theme.Hilt2" parent="Base.Theme.Hilt2" />
