@@ -1,5 +1,6 @@
 package com.example.topmovies.api
 
+import com.example.topmovies.models.home.ResponseGenreList
 import com.example.topmovies.models.home.ResponseMoviesList
 import com.example.topmovies.models.register.BodyRegister
 import com.example.topmovies.models.register.ResponseRegister
@@ -17,4 +18,7 @@ interface ApiServices {
 
     @GET("genres/{genre_id}/movies")
     suspend fun getTopMoviesList(@Path("genre_id") genreId : Int , @Query("page") page : Int ) : Response<ResponseMoviesList>
+
+    @GET("genres")
+    suspend fun getGenreList() : Response<ResponseGenreList>
 }
