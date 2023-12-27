@@ -10,7 +10,9 @@ import com.example.topmovies.R
 import com.example.topmovies.databinding.ActivityMainBinding
 import com.example.topmovies.utils.goneWidget
 import com.example.topmovies.utils.showWidget
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
     private lateinit var navController: NavController
@@ -25,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             bottomNav.setupWithNavController(navController)
             //show bottom navigation
             navController.addOnDestinationChangedListener { controller, destination, arguments ->
-                if (destination.id == R.id.splashFragment){
+                if (destination.id == R.id.splashFragment || destination.id == R.id.registerFragment ){
                     goneWidget(bottomNav)
                 }else{
                     showWidget(bottomNav)

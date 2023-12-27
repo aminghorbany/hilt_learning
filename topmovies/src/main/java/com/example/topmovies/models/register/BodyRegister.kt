@@ -4,9 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class BodyRegister(
     @SerializedName("name")
-    val name: String?,
+    var name: String? = "",
     @SerializedName("email")
-    val email: String?,
+    var email: String? = "" ,
     @SerializedName("password")
-    val password: String?,
+    var password: String? = "",
 )

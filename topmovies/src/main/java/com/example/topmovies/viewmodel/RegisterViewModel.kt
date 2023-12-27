@@ -13,8 +13,8 @@ import javax.inject.Inject
 @HiltViewModel
 class RegisterViewModel @Inject constructor(private val repo : RegisterRepository) : ViewModel() {
 
-    private val loading = MutableLiveData<Boolean>()
-    private val responseRegisterData = MutableLiveData<ResponseRegister>()
+    val loading = MutableLiveData<Boolean>()
+    val responseRegisterData = MutableLiveData<ResponseRegister>()
     fun doRegisterUser(data : BodyRegister) = viewModelScope.launch {
         loading.postValue(true)
         val response = repo.registerUser(data)
