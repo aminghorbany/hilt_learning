@@ -3,6 +3,8 @@ package com.example.topmovies.utils
 import android.content.Context
 import android.view.View
 import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.google.android.material.snackbar.Snackbar
 
 fun Context.showShortToast(txt : String){
@@ -31,4 +33,11 @@ fun Context.hideWidget(view : View){
 
 fun Context.goneWidget(view : View){
     view.visibility = View.GONE
+}
+
+fun RecyclerView.initRecyclerView(layoutManager : LayoutManager , adapter : RecyclerView.Adapter<*>){
+    this.layoutManager = layoutManager
+    this.adapter = adapter
+//    this.setHasFixedSize(true)
+    // we can set animation
 }
