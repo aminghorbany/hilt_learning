@@ -37,6 +37,7 @@ class HomeFragment : Fragment() {
         // call api
         homeViewModel.getTopMoviesList(3, 1)
         homeViewModel.getGenreList()
+        homeViewModel.getLastMoviesList()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -62,6 +63,13 @@ class HomeFragment : Fragment() {
                 homeViewModel.getGenreListLiveData.observe(viewLifecycleOwner){
                     homeGenreAdapter.differ.submitList(it)
                     genresRecycler.initRecyclerView(LinearLayoutManager(requireContext() , RecyclerView.HORIZONTAL ,false ) , homeGenreAdapter)
+                }
+            }
+            //get Last Movies
+            lifecycle.coroutineScope.launchWhenCreated {
+                homeViewModel.getLastMoviesListLiveData.observe(viewLifecycleOwner){
+//                    homeGenreAdapter.differ.submitList(it.data)
+//                    genresRecycler.initRecyclerView(LinearLayoutManager(requireContext() , RecyclerView.HORIZONTAL ,false ) , homeGenreAdapter)
                 }
             }
         }

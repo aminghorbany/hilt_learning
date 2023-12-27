@@ -21,4 +21,7 @@ interface ApiServices {
 
     @GET("genres")
     suspend fun getGenreList() : Response<ResponseGenreList>
+
+    @GET("movies")
+    suspend fun getLastMoviesList() : Response<ResponseMoviesList>
 }

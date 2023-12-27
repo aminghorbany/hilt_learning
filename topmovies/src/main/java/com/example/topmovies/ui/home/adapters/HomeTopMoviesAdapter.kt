@@ -49,7 +49,7 @@ class HomeTopMoviesAdapter @Inject constructor() : RecyclerView.Adapter<HomeTopM
         holder.setIsRecyclable(false) //for prevent duplicate item
     }
 
-    override fun getItemCount() = 9
+    override fun getItemCount() = if (differ.currentList.size > 9) 9 else differ.currentList.size
 
     override fun getItemViewType(position: Int) = position // for prevent confusing
 }

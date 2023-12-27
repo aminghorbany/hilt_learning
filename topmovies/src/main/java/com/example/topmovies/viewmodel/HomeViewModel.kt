@@ -16,6 +16,7 @@ class HomeViewModel @Inject constructor(private val repo : HomeRepository) : Vie
     // we have 3 api but 1 loading after api we will handle loading - for better name set LiveData at the end of variables.
     val getTopMoviesListLiveData = MutableLiveData<ResponseMoviesList>()
     val getGenreListLiveData = MutableLiveData<ResponseGenreList>()
+    val getLastMoviesListLiveData = MutableLiveData<ResponseMoviesList>()
 
     fun getTopMoviesList(genreId : Int , page : Int) = viewModelScope.launch {
         val response = repo.getTopMovies(genreId , page)
@@ -28,6 +29,13 @@ class HomeViewModel @Inject constructor(private val repo : HomeRepository) : Vie
         val response = repo.getGenreList()
         if (response.isSuccessful){
             getGenreListLiveData.postValue(response.body())
+        }
+    }
+
+    fun getLastMoviesList() = viewModelScope.launch {
+        val response = repo.getLastMoviesList()
+        if (response.isSuccessful){
+            getLastMoviesListLiveData.postValue(response.body())
         }
     }
 

@@ -9,4 +9,6 @@ class HomeRepository @Inject constructor(private val api : ApiServices)  {
 
     suspend fun getGenreList() = api.getGenreList()
 
+    suspend fun getLastMoviesList() = api.getLastMoviesList()
+
 }
