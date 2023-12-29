@@ -10,14 +10,13 @@ import androidx.lifecycle.coroutineScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
-import androidx.recyclerview.widget.SnapHelper
-import com.example.topmovies.R
 import com.example.topmovies.databinding.FragmentHomeBinding
-import com.example.topmovies.models.home.ResponseMoviesList
 import com.example.topmovies.ui.home.adapters.HomeGenresAdapter
+import com.example.topmovies.ui.home.adapters.HomeLastMoviesAdapter
 import com.example.topmovies.ui.home.adapters.HomeTopMoviesAdapter
+import com.example.topmovies.utils.goneWidget
 import com.example.topmovies.utils.initRecyclerView
+import com.example.topmovies.utils.showWidget
 import com.example.topmovies.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -28,8 +27,10 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     @Inject lateinit var homeTopMoviesAdapter: HomeTopMoviesAdapter
     @Inject lateinit var homeGenreAdapter: HomeGenresAdapter
-    private val homeViewModel : HomeViewModel by viewModels()
-    private val pageHelper : PagerSnapHelper by lazy { PagerSnapHelper() }
+    @Inject lateinit var homeLastMoviesAdapter: HomeLastMoviesAdapter
+
+    private val homeViewModel: HomeViewModel by viewModels()
+    private val pageHelper: PagerSnapHelper by lazy { PagerSnapHelper() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,27 +50,35 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             //get Top Movies
-            lifecycle.coroutineScope.launchWhenCreated {
-                homeViewModel.getTopMoviesListLiveData.observe(viewLifecycleOwner){
-                    homeTopMoviesAdapter.differ.submitList(it.data)
-                    topMoviesRecycler.initRecyclerView(LinearLayoutManager(requireContext() ,
-                        LinearLayoutManager.HORIZONTAL , false  ) , homeTopMoviesAdapter) // reverse is good for persian app
-                    pageHelper.attachToRecyclerView(topMoviesRecycler) // attach pageHelper to RecyclerView
-                    topMoviesIndicator.attachToRecyclerView(topMoviesRecycler , pageHelper )  // init indicator
-                }
+            homeViewModel.getTopMoviesListLiveData.observe(viewLifecycleOwner) {
+                homeTopMoviesAdapter.differ.submitList(it.data)
+                topMoviesRecycler.initRecyclerView(
+                    LinearLayoutManager(
+                        requireContext(),
+                        LinearLayoutManager.HORIZONTAL, false
+                    ), homeTopMoviesAdapter
+                ) // reverse is good for persian app
+                pageHelper.attachToRecyclerView(topMoviesRecycler) // attach pageHelper to RecyclerView
+                topMoviesIndicator.attachToRecyclerView(topMoviesRecycler, pageHelper)  // init indicator
             }
             //get Genres
-            lifecycle.coroutineScope.launchWhenCreated {
-                homeViewModel.getGenreListLiveData.observe(viewLifecycleOwner){
-                    homeGenreAdapter.differ.submitList(it)
-                    genresRecycler.initRecyclerView(LinearLayoutManager(requireContext() , RecyclerView.HORIZONTAL ,false ) , homeGenreAdapter)
-                }
+            homeViewModel.getGenreListLiveData.observe(viewLifecycleOwner) {
+                homeGenreAdapter.differ.submitList(it)
+                genresRecycler.initRecyclerView(LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false), homeGenreAdapter)
             }
             //get Last Movies
-            lifecycle.coroutineScope.launchWhenCreated {
-                homeViewModel.getLastMoviesListLiveData.observe(viewLifecycleOwner){
-//                    homeGenreAdapter.differ.submitList(it.data)
-//                    genresRecycler.initRecyclerView(LinearLayoutManager(requireContext() , RecyclerView.HORIZONTAL ,false ) , homeGenreAdapter)
+            homeViewModel.getLastMoviesListLiveData.observe(viewLifecycleOwner) {
+                homeLastMoviesAdapter.setData(it.data)
+                lastMoviesRecycler.initRecyclerView(LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false), homeLastMoviesAdapter)
+            }
+            //loading
+            homeViewModel.loading.observe(viewLifecycleOwner){
+                if (it){
+                    requireContext().goneWidget(moviesScrollLay)
+                    requireContext().showWidget(moviesLoading)
+                }else{
+                    requireContext().goneWidget(moviesLoading)
+                    requireContext().showWidget(moviesScrollLay)
                 }
             }
         }

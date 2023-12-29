@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ResponseMoviesList(
     @SerializedName("data")
-    var `data`: List<Data?>?,
+    var `data`: List<Data>,
     @SerializedName("metadata")
     var metadata: Metadata?
 ) {
