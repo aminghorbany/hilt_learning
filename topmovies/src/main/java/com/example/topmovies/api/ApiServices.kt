@@ -24,4 +24,7 @@ interface ApiServices {
 
     @GET("movies")
     suspend fun getLastMoviesList() : Response<ResponseMoviesList>
+
+    @GET("movies")
+    suspend fun searchMoviesList(@Query("q") name : String ) : Response<ResponseMoviesList>
 }
