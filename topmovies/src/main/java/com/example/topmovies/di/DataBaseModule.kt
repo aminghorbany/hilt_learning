@@ -28,7 +28,7 @@ object DataBaseModule {
 
     @Provides
     @Singleton
-    fun provideDao(db : MoviesDataBase) = db.moviesDao()
+    fun provideDao(db : MoviesDataBase) : MoviesDao = db.moviesDao()
 
     @Provides
     @Singleton
