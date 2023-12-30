@@ -26,7 +26,7 @@
                     android:id="@+id/posterBigImg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:alpha="0.1"
+                    android:alpha="0.2"
                     android:scaleType="centerCrop" />
                 <!--Normal image-->
                 <com.google.android.material.imageview.ShapeableImageView
@@ -106,10 +106,11 @@
                         android:layout_height="wrap_content"
                         android:drawablePadding="@dimen/_5mdp"
                         android:fontFamily="sans-serif-light"
-                        android:textColor="@color/philippineSilver"
+                        android:textColor="@color/crayola"
                         android:textSize="@dimen/_10font_mdp"
+                        android:drawableTint="@color/crayola"
                         app:drawableStartCompat="@drawable/ic_round_star_24"
-                        app:drawableTint="@color/philippineSilver"
+                        app:drawableTint="@color/crayola"
                         app:layout_constraintEnd_toStartOf="@+id/movieTimeTxt"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
@@ -201,7 +202,7 @@
                     android:textColor="@color/philippineSilver"
                     android:textSize="@dimen/_12font_mdp"
                     app:drawableStartCompat="@drawable/ic_round_person_24"
-                    app:drawableTint="@color/philippineSilver"
+                    app:drawableTint="@color/crayola"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
                 <!--Info-->
