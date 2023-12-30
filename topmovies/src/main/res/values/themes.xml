@@ -27,5 +27,11 @@
         <item name="boxBackgroundColor">@color/gunmetal</item>
     </style>
 
+    <!--RoundedImageView-->
+    <style name="RoundedImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/_10mdp</item>
+    </style>
+
     <style name="Theme.Hilt2" parent="Base.Theme.Hilt2" />
 </resources>

@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.coroutineScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.topmovies.databinding.FragmentHomeBinding
+import com.example.topmovies.ui.detail.DetailFragmentDirections
 import com.example.topmovies.ui.home.adapters.HomeGenresAdapter
 import com.example.topmovies.ui.home.adapters.HomeLastMoviesAdapter
 import com.example.topmovies.ui.home.adapters.HomeTopMoviesAdapter
@@ -70,6 +72,11 @@ class HomeFragment : Fragment() {
             homeViewModel.getLastMoviesListLiveData.observe(viewLifecycleOwner) {
                 homeLastMoviesAdapter.setData(it.data)
                 lastMoviesRecycler.initRecyclerView(LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false), homeLastMoviesAdapter)
+            }
+            //onItemClick
+            homeLastMoviesAdapter.onItemClickListener {
+                val direction = HomeFragmentDirections.actionToDetailFragment(it.id!!) // HomeFragmentDirections origin
+                findNavController().navigate(direction)
             }
             //loading
             homeViewModel.loading.observe(viewLifecycleOwner){

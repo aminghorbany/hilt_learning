@@ -60,9 +60,18 @@ class FavoritesAdapter @Inject constructor() : RecyclerView.Adapter<FavoritesAda
                     crossfade(true)
                     crossfade(600)
                 }
+                root.setOnClickListener {
+                    onItemClick?.invoke(item)
+                }
             }
         }
     }
+
+    private var onItemClick : ((MoviesEntity) -> Unit?) ?= null
+    fun onItemClickListener(listener : (MoviesEntity) -> Unit? ){
+        onItemClick = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         binding = ItemHomeMoviesLastBinding.inflate(LayoutInflater.from(parent.context) , parent , false)
         return HomeViewHolder()

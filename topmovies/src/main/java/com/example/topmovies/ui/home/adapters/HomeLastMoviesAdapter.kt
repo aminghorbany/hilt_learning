@@ -59,9 +59,18 @@ class HomeLastMoviesAdapter @Inject constructor() : RecyclerView.Adapter<HomeLas
                     crossfade(true)
                     crossfade(600)
                 }
+                root.setOnClickListener {
+                    onItemClick?.invoke(item)
+                }
             }
         }
     }
+
+    private var onItemClick : ((Data) -> Unit?) ?= null
+    fun onItemClickListener(listener : (Data) -> Unit? ){
+        onItemClick = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         binding = ItemHomeMoviesLastBinding.inflate(LayoutInflater.from(parent.context) , parent , false)
         return HomeViewHolder()

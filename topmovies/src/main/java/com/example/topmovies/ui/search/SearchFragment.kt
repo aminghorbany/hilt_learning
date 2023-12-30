@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.topmovies.R
 import com.example.topmovies.databinding.FragmentSearchBinding
+import com.example.topmovies.ui.favorite.FavoriteFragmentDirections
 import com.example.topmovies.ui.home.adapters.HomeLastMoviesAdapter
 import com.example.topmovies.utils.goneWidget
 import com.example.topmovies.utils.initRecyclerView
@@ -60,6 +62,11 @@ class SearchFragment : Fragment() {
                     requireContext().goneWidget(emptyItemsLay)
                     requireContext().showWidget(moviesRecycler)
                 }
+            }
+            //onItemClick
+            homeLastMoviesAdapter.onItemClickListener {
+                val direction = SearchFragmentDirections.actionToDetailFragment(it.id!!) // SearchFragmentDirections origin
+                findNavController().navigate(direction)
             }
         }
     }
