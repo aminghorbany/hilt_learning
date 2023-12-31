@@ -27,7 +27,8 @@ class MainActivity : AppCompatActivity() {
             bottomNav.setupWithNavController(navController)
             //show bottom navigation
             navController.addOnDestinationChangedListener { controller, destination, arguments ->
-                if (destination.id == R.id.splashFragment || destination.id == R.id.registerFragment ){
+                if (destination.id == R.id.splashFragment || destination.id == R.id.registerFragment
+                    || destination.id == R.id.detailFragment){
                     goneWidget(bottomNav)
                 }else{
                     showWidget(bottomNav)
