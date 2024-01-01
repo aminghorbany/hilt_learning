@@ -2,6 +2,7 @@ package com.example.koin
 
 import android.app.Application
 import com.example.koin.interfacee.carModule
+import com.example.koin.qualifiers.infoModule
 import com.example.koin.simple.userModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -24,7 +25,10 @@ class MyApp : Application() {
 //            androidLogger() // for log
 
             //module interface
-            modules(carModule)
+//            modules(carModule)
+
+            //module Qualifiers
+            modules(infoModule)
         }
     }
 }
