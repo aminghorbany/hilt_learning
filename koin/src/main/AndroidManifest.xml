@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hilt2">
         <activity
-            android:name=".qualifiers.QualifiersActivity"
+            android:name=".ViewModel.ViewModelActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,13 +18,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".interfacee.InterfaceActivity"
+            android:name=".qualifiers.QualifiersActivity"
             android:exported="false">
         </activity>
         <activity
-            android:name=".simple.MainActivity"
+            android:name=".interfacee.InterfaceActivity"
             android:exported="false"></activity>
+        <activity
+            android:name=".simple.MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

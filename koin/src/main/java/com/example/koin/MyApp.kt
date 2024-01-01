@@ -1,6 +1,7 @@
 package com.example.koin
 
 import android.app.Application
+import com.example.koin.ViewModel.vmModule
 import com.example.koin.interfacee.carModule
 import com.example.koin.qualifiers.infoModule
 import com.example.koin.simple.userModule
@@ -28,7 +29,10 @@ class MyApp : Application() {
 //            modules(carModule)
 
             //module Qualifiers
-            modules(infoModule)
+//            modules(infoModule)
+
+            //module viewModel
+            modules(vmModule)
         }
     }
 }
