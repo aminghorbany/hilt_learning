@@ -4,6 +4,8 @@ import android.app.Application
 import com.example.koin.ViewModel.vmModule
 import com.example.koin.interfacee.carModule
 import com.example.koin.qualifiers.infoModule
+import com.example.koin.room.repository.roomRepositoryModule
+import com.example.koin.room.viewmodel.roomViewModelModule
 import com.example.koin.simple.userModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -32,7 +34,11 @@ class MyApp : Application() {
 //            modules(infoModule)
 
             //module viewModel
-            modules(vmModule)
+//            modules(vmModule)
+
+            //module room
+//            modules(dataBaseModule)
+//            modules(databaseModule , roomRepositoryModule , roomViewModelModule)
         }
     }
 }

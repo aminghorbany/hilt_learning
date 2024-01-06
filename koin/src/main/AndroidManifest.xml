@@ -10,22 +10,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hilt2">
         <activity
-            android:name=".ViewModel.ViewModelActivity"
-            android:exported="true" >
+            android:name=".retrofit.RetrofitActivity"
+            android:exported="false" />
+        <activity
+            android:name=".room.RoomActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".ViewModel.ViewModelActivity"
+            android:exported="true"></activity>
         <activity
             android:name=".qualifiers.QualifiersActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".interfacee.InterfaceActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".simple.MainActivity"
             android:exported="false" />
