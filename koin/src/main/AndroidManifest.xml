@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".MyApp"
@@ -11,10 +12,7 @@
         android:theme="@style/Theme.Hilt2">
         <activity
             android:name=".retrofit.RetrofitActivity"
-            android:exported="false" />
-        <activity
-            android:name=".room.RoomActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,8 +20,13 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".room.RoomActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
             android:name=".ViewModel.ViewModelActivity"
-            android:exported="true"></activity>
+            android:exported="false" />
         <activity
             android:name=".qualifiers.QualifiersActivity"
             android:exported="false" />

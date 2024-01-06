@@ -4,6 +4,8 @@ import android.app.Application
 import com.example.koin.ViewModel.vmModule
 import com.example.koin.interfacee.carModule
 import com.example.koin.qualifiers.infoModule
+import com.example.koin.retrofit.api.networkModule
+import com.example.koin.retrofit.di.movieModule
 import com.example.koin.room.repository.roomRepositoryModule
 import com.example.koin.room.viewmodel.roomViewModelModule
 import com.example.koin.simple.userModule
@@ -39,6 +41,9 @@ class MyApp : Application() {
             //module room
 //            modules(dataBaseModule)
 //            modules(databaseModule , roomRepositoryModule , roomViewModelModule)
+
+            //module retrofit
+            modules(networkModule , movieModule)
         }
     }
 }
