@@ -8,12 +8,15 @@ import com.example.koin.retrofit.api.networkModule
 import com.example.koin.retrofit.di.movieModule
 import com.example.koin.room.repository.roomRepositoryModule
 import com.example.koin.room.viewmodel.roomViewModelModule
+import com.example.koin.scopes.personModule
 import com.example.koin.simple.userModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
+import org.koin.core.annotation.KoinReflectAPI
 import org.koin.core.context.startKoin
 
 
+@KoinReflectAPI
 class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
@@ -43,7 +46,10 @@ class MyApp : Application() {
 //            modules(databaseModule , roomRepositoryModule , roomViewModelModule)
 
             //module retrofit
-            modules(networkModule , movieModule)
+//            modules(networkModule , movieModule)
+
+            //scope
+            modules(personModule) //set propagate annotation warning @KoinReflectAPI - last one
         }
     }
 }
