@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/app/s1-room" />
             <option value="$PROJECT_DIR$/datastore" />
             <option value="$PROJECT_DIR$/koin" />
+            <option value="$PROJECT_DIR$/paging3" />
             <option value="$PROJECT_DIR$/s1_coroutine" />
             <option value="$PROJECT_DIR$/s1_navigationcomponent" />
             <option value="$PROJECT_DIR$/testmodule" />
