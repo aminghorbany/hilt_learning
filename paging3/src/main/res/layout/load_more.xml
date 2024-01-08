@@ -7,8 +7,8 @@
     <!--Loading-->
     <ProgressBar
         android:id="@+id/loadMoreProgress"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/bg_circle_white"
         android:padding="3dp"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
     <!--Err-->
     <TextView
-        android:id="@+id/loadMoreTxt"
+        android:id="@+id/loadMoreTxtError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
@@ -36,9 +36,12 @@
         android:text="Retry"
         android:textAllCaps="false"
         android:textSize="14sp"
-        app:cornerRadius="10dp"
+        app:cornerRadius="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:backgroundTint="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loadMoreTxt" />
+        app:layout_constraintTop_toBottomOf="@id/loadMoreTxtError" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

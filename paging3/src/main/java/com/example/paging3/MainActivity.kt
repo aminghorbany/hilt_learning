@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.paging.LoadStates
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.paging3.adapter.LoadMoreAdapter
 import com.example.paging3.adapter.MoviesAdapter
 import com.example.paging3.databinding.ActivityMainBinding
 import com.example.paging3.viewmodel.MoviesViewModel
@@ -45,10 +46,17 @@ class MainActivity : AppCompatActivity() {
                 adapter = moviesAdapter
                 layoutManager = LinearLayoutManager(this@MainActivity)
             }
+            // swipeRefresh
             movieSwipe.setOnRefreshListener {
                 movieSwipe.isRefreshing = false
                 moviesAdapter.refresh()
             }
+            //load more
+            moviesRecycler.adapter = moviesAdapter.withLoadStateFooter(
+                LoadMoreAdapter{
+                    moviesAdapter.retry()
+                }
+            )
         }
     }
 }
